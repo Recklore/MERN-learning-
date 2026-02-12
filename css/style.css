@@ -1,0 +1,22 @@
+/* selectors
+
+universal: *
+id, class: #, .
+tag: tagname 
+attribute based: h1[draggable="true"]
+group: just use any above multiple selectors using ","
+
+*/
+
+/* attribute
+
+draggable
+editable
+
+*/
+
+
+/* block elements can have margin and height
+ width but inline elements can only have horizontal margin (margin milta h par display nai hota) */
+
+ 

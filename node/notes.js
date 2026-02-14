@@ -14,3 +14,12 @@
 
 // if we use require() and give it a folder path instead of a file path then i would check the module.exports of index.js file in that folder
 
+// node.js is aysnchronous
+
+// // libuv in node
+// 'c' code that is use as an interface between node.js code and sever system allowing async behaviour (as we dont browser here as we had in the frontend)
+// libuv is cross platform
+
+// // File handling in node
+// cosnt fs = require('fs')
+// fs.readFile(",/path", "utf-8",(err, res)=>(....))

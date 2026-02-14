@@ -6,3 +6,11 @@
 // export default something
 // import something from "./file.js"
 
+// // CJS vs MJS
+// cjs is older and mjs is newer
+// cjs: require, module.export ; mjs: import, export
+// cjs is synchronous whereas mjs is asynchronous in terms of module import and exports 
+// cjs runs in non strict mode by default, amn mjs in strict mode by default
+
+// if we use require() and give it a folder path instead of a file path then i would check the module.exports of index.js file in that folder
+

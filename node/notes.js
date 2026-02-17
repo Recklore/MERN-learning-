@@ -23,3 +23,9 @@
 // // File handling in node
 // cosnt fs = require('fs')
 // fs.readFile(",/path", "utf-8",(err, res)=>(....))
+
+// // Server in node
+// const http = require("http")
+// const server = http.createServer((req, res)=>{ res.end("hello world")})
+// server.listen(4000, ()=>{....})
+// req.url -> gives the url endpoint on which req is made

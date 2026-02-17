@@ -29,3 +29,11 @@
 // const server = http.createServer((req, res)=>{ res.end("hello world")})
 // server.listen(4000, ()=>{....})
 // req.url -> gives the url endpoint on which req is made
+
+// // MOnolith vs Microservice
+// scaling
+// codebase (single vs distributed)
+// tech stack
+// development
+// server failure
+// cost

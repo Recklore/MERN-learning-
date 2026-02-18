@@ -44,7 +44,20 @@
 // // Express in node
 // cosnt express = require('express)
 // const app = express()
-// app.use("/about".(req, res)=>{res.send(....)}) -> in this the matching of end point happens character by character and from top to bottom of the code
+// app.use("/about".(req, res)=>{res.send(....)}) -> in this the matching of end point happens word (endpoint prefix) by word and from top to bottom of the code
 // app.use("/abou?t".(req, res)=>{res.send(....)}) -> when there is a question mark in endpoint the the character before it is optional in the url (+ means character can be repeated, * , means anything can be put in between)
 // app.use("/about/:id/:user".(req, res)=>{res.send(....)}) -> variables in url
 // app.listen(4000, ()=>{......})
+// app.get() -> these matches the whole endpoint instead of the first word only as in app.use()
+// app.post()
+
+// // js object vs json
+// json is of string (text only) format whereas the js object is an object with its own prototype
+// js function, undefined, null etc cant be the part of json
+// the parser is used to convert the json data into js object -> app.use(express.json())
+// even numbers are kept as string (not always) during the parsing as we dont know the actual datatype of the json data 
+
+// // Postman -> used to test the backend and its responses to various types of requests
+
+// // Middleware in node
+// 

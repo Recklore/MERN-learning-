@@ -37,3 +37,14 @@
 // development
 // server failure
 // cost
+
+// fetch api can be used to use the CRUS methods
+// patch vs put: patch for partial updates (single or few changes) and put is used for complete updates in data
+
+// // Express in node
+// cosnt express = require('express)
+// const app = express()
+// app.use("/about".(req, res)=>{res.send(....)}) -> in this the matching of end point happens character by character and from top to bottom of the code
+// app.use("/abou?t".(req, res)=>{res.send(....)}) -> when there is a question mark in endpoint the the character before it is optional in the url (+ means character can be repeated, * , means anything can be put in between)
+// app.use("/about/:id/:user".(req, res)=>{res.send(....)}) -> variables in url
+// app.listen(4000, ()=>{......})

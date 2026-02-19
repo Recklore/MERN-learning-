@@ -55,9 +55,11 @@
 // json is of string (text only) format whereas the js object is an object with its own prototype
 // js function, undefined, null etc cant be the part of json
 // the parser is used to convert the json data into js object -> app.use(express.json())
-// even numbers are kept as string (not always) during the parsing as we dont know the actual datatype of the json data 
 
 // // Postman -> used to test the backend and its responses to various types of requests
 
 // // Middleware in node
-// 
+// app.use('/home', (req,res,next)=>{}, (req,res)=>{}) -> the next aregument in the arrow callback has the refernce to the next callback function we passed as and argument in the app.use()
+// if we call next and we dont have any next callback function then we get and 404 error
+// app.use('/home', route-handler, route-hander) -> there can be n number of route handlers and they be kept in array or even alone separated by comma, also we can write these in separate app.use() with same route
+// now all these callbacks that are in between are called middleware and the last one is called request handler etc

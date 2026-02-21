@@ -82,3 +82,5 @@
 
 // // DATABASES
 // CAP theorem (brewer's theorem) -> whenever we have a distributed databases and systems it can only guarantee only two out of the three following properties: Consistency, Availability, Partition Tolerance (internal communication between the distributed systems is down then what to do, consistency vs availability)
+
+// // B+ tree -> already studied

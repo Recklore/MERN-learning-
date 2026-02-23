@@ -84,3 +84,33 @@
 // CAP theorem (brewer's theorem) -> whenever we have a distributed databases and systems it can only guarantee only two out of the three following properties: Consistency, Availability, Partition Tolerance (internal communication between the distributed systems is down then what to do, consistency vs availability)
 
 // // B+ tree -> already studied
+
+// // MongoDB (npm install mongodb)
+// we will get the replica services with free plan but we wont be getting the feature of sharding in that free plan
+// mongodb connection string -> username : password @ cluster
+// database -> collection(kind of table) -> document(row) -> field
+
+// const { Mongoclient } = require('mongodb')
+// const client = new MOngoClient("connection url")
+// 
+// async function main()
+// {
+//     await client.connect()
+
+//     const db = client.db("name")
+//     const colleciton = db.colleciton("name")
+//     
+//     these two fucntions to access the db and collection dont need await as it does not care/checks if the database or collection even exists, these things are checked when we try to access the data
+//     return 'done.'
+// }
+// 
+// main()
+// .then(console.log)
+// .catch(console.error)
+// .finally(()=>client.close())
+
+// cosnt result = await collection.find({}).toArray() -> the network call is made by .toArray and not the .find (so the await is for .toArray) .find gives object that just act as cursor to read documents one by one or in case or .toArray data is fetched and kept in an single array
+// for await (const doc of result)
+//     console.log(doc)
+
+// const insertResult = await collection.insertOne({.....}) -> use insertMany to insert multiple docs in the collection; insertMany([{....},{....}])

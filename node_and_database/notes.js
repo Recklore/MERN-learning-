@@ -9,7 +9,7 @@
 // // CJS vs MJS
 // cjs is older and mjs is newer
 // cjs: require, module.export ; mjs: import, export
-// cjs is synchronous whereas mjs is asynchronous in terms of module import and exports 
+// cjs is synchronous whereas mjs is asynchronous in terms of module import and exports
 // cjs runs in non strict mode by default, amn mjs in strict mode by default
 
 // if we use require() and give it a folder path instead of a file path then i would check the module.exports of index.js file in that folder
@@ -77,7 +77,7 @@
 // {
 //     something else
 // }
-// 
+//
 // throw new Error("Broken") -> throwing custom errors
 
 // // DATABASES
@@ -92,18 +92,18 @@
 
 // const { Mongoclient } = require('mongodb')
 // const client = new MOngoClient("connection url")
-// 
+//
 // async function main()
 // {
 //     await client.connect()
 
 //     const db = client.db("name")
 //     const colleciton = db.colleciton("name")
-//     
+//
 //     these two fucntions to access the db and collection dont need await as it does not care/checks if the database or collection even exists, these things are checked when we try to access the data
 //     return 'done.'
 // }
-// 
+//
 // main()
 // .then(console.log)
 // .catch(console.error)
@@ -114,3 +114,36 @@
 //     console.log(doc)
 
 // const insertResult = await collection.insertOne({.....}) -> use insertMany to insert multiple docs in the collection; insertMany([{....},{....}])
+
+// // Mongoose (a layer of software on top of mongoDB) (it is object data modeling (ODM) library)
+// npm install mongoose
+// const mongoose = require('mongoose')
+// await mongoose.connect("connection string")
+
+// const {Schema} = mongoose
+// const userSchema = new Schema({
+//     name: String,
+//     age: Number,
+// })
+//
+// creating model/class -> creating collection (table)
+// const user_model = mongoose.create("collection_name", userSchema)
+//
+// creating instance of the model/class
+// const user1 = new user_model({name:"aman", age: 21})
+// await user1.save()
+//
+// await user_model.create({name:"aman", age: 21})
+// await user_model.insertMany([{name:"aman", age: 21}.......])
+//
+// "__v" is a field automatically attached by mongoose and it is used to keeps track of the version of the document
+//
+// querying the database
+// const ans = await User.find({}) -> get all
+// const ans = await User.find({name: "aman"}) -> filtered results where name is aman
+// 
+// connect to database first before starting the server (starting listening)
+// if any extra field (not in schema) is sent in the post/put then mongoose just stores the fields that are in the schema and ignores the unwanted field completely
+// 
+// await user_model.deleteOne({name: "aman"})
+// const res = await user_model.deleteOne({name: "aman"} // find, {age: 21} // update)

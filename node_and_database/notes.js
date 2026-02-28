@@ -147,3 +147,16 @@
 // 
 // await user_model.deleteOne({name: "aman"})
 // const res = await user_model.deleteOne({name: "aman"} // find, {age: 21} // update)
+
+
+// // Data Sanitasation and Validation in MOngoose
+// explore methods like findByIdAndUpdate(_id, update, {"runValidator":true}) -> third option is to check data for schema before updating, findById etc
+// data validation using mongoose schema (min, max, unique, default, immutable, etc)
+// enum: ["male", "female", "other"] -> if enum is defined then the field will not accept any value other than what is defined in the array
+
+// validate(value){
+//     // we can access the value of the field by the value variable and apply validation operations on it 
+// } -> this is defined inside the schema
+// {timestamps:true} -> time is set true in the schema to enable the fields of createdAt and updatedAt in stored documents
+// 
+// API level validation vs Schema level validation -> we do API level validation to minimise DB calls

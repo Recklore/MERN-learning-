@@ -160,3 +160,15 @@
 // {timestamps:true} -> time is set true in the schema to enable the fields of createdAt and updatedAt in stored documents
 // 
 // API level validation vs Schema level validation -> we do API level validation to minimise DB calls
+
+// // Password storage
+// Rainbow table (used to get hash of common passwords)
+// 
+// Salting -> adding strings/characters in the password
+// 
+// //  bcrypt library
+// const bcrypt = require('bcrypt')
+// const password = "something"
+// const salt = bcrypt.genSalt(10)
+// cosnt hashedPass = await brcypt.hash(password, 10 -> iterations or salt can also be passed instead of this as it has all info already)
+// cosnt ans = await bcrypt.compare(password, hashpass)

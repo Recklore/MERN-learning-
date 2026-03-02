@@ -172,3 +172,11 @@
 // const salt = bcrypt.genSalt(10)
 // cosnt hashedPass = await brcypt.hash(password, 10 -> iterations or salt can also be passed instead of this as it has all info already)
 // cosnt ans = await bcrypt.compare(password, hashpass)
+
+// // API level validation
+// cosnt validator = require('validator')
+// validator.isEmail(data.emailId) -> validator library has more such functions to validate different user inputs
+
+// // Session management
+// session id
+// digital signature using public key and private key

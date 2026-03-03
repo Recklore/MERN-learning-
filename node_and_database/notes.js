@@ -180,3 +180,21 @@
 // // Session management
 // session id
 // digital signature using public key and private key
+
+// // JWT (json web token) (jwt token is stateless) (jwt.io) token and cookies
+// JWT => header.payload.digitalSignature
+// Header -> type, algo name, etc
+// Payload -> has info like usersname, email, etc
+// DigitalSignature -> encrypt by sever key( hashcode( header + payload ))
+// 
+// the header and payload are not encrypted at all, while just the the Digital signature part it encrypted by server key
+// 
+// res.cookie("JWT_token", "actual token value")
+// Cookie parser -> npm install cookie-parser
+// const cookieParser = require(cookie-parser)
+// app.use(cookieParser())
+// 
+// npm isntall jsonwebtoken
+// const jwt = require(jsonwebtoken)
+// const token = jwt.sign({"payload":"values"}, "server_key", {expiresIn:3600 -> time in seconds, or we can use "2 days", "10h", etc})
+// cosnt payload = jwt.verify(req.cookie.token, "server_key") -> if the token is verified successfully then the payload is returned else an error is thrown

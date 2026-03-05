@@ -198,3 +198,6 @@
 // const jwt = require(jsonwebtoken)
 // const token = jwt.sign({"payload":"values"}, "server_key", {expiresIn:3600 -> time in seconds, or we can use "2 days", "10h", etc})
 // cosnt payload = jwt.verify(req.cookie.token, "server_key") -> if the token is verified successfully then the payload is returned else an error is thrown
+
+// // Refresh token -> it is used to refresh the jwt token after expiry, its gives an illusion of permanant jwt token to user
+// refresh token becomes invalid once user changes his/her password, usually we store the refresh token and its attributes in the database

@@ -28,6 +28,8 @@ const userSchema = new Schema({
   },
 }, {timestamps:true});
 
+// userSchema.methods.functionName = function{/*comething*/} //this is how we create schema methods
+
 const User = mongoose.model("user", userSchema);
 
 module.exports = User;

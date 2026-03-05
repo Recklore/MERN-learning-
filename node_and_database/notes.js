@@ -201,3 +201,17 @@
 
 // // Refresh token -> it is used to refresh the jwt token after expiry, its gives an illusion of permanant jwt token to user
 // refresh token becomes invalid once user changes his/her password, usually we store the refresh token and its attributes in the database
+
+// // Schema methods -> used and mentioned in the user.js file
+
+// // Environment variables -> used em in python (the same .env file)
+// npm install dotenv
+// require('dotenv'),config()
+// 
+// process.env.key -> this is the variable we use to access variables mentioned in the .env file, where key is the name of the variable
+// process.env is a global object
+
+// // Express Router
+// create using express.Router()
+// rest of the info the routes.js file
+// then we import the route into the main file and then pass it in place of the callback

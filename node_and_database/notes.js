@@ -220,4 +220,11 @@
 // the above method wont work if the user already copied the previous token, as that token is still for sometime so we need to create an in-memory db to store the logout tokens till there expiry
 
 
-// // Redis database -> in-memory database
+// // Redis database -> in-memory database (npm install redis)
+// const redis = require('redis)
+// const redisClient = redis.createClient("all the details about the connection that we can get on the redis dashboard or something" "username, pass, socket etc...")
+// await redisClient.connect() -> write this in an async function to connect to redis database
+// await redisClient.set(`token:${token}`, "blocked") -> creates a key value pair in redis
+// await redisClient.expire(`token:${token}`, 1800)
+// await redisClient.expireAt(`token:${token}`, payload.expAt) -> set the expiry of the key
+// const isBlocked = await redisClient.exists(`token:${token}) -> checks if the key exists

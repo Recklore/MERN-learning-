@@ -209,9 +209,15 @@
 // require('dotenv'),config()
 // 
 // process.env.key -> this is the variable we use to access variables mentioned in the .env file, where key is the name of the variable
-// process.env is a global object
+// process.env is a global
 
 // // Express Router
 // create using express.Router()
 // rest of the info the routes.js file
 // then we import the route into the main file and then pass it in place of the callback
+
+// // Logout -> res.cookie("token", null, {expires: new Date(Date.now())}) -< it deletes the cookies
+// the above method wont work if the user already copied the previous token, as that token is still for sometime so we need to create an in-memory db to store the logout tokens till there expiry
+
+
+// // Redis database -> in-memory database

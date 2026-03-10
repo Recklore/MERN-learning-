@@ -228,3 +228,29 @@
 // await redisClient.expire(`token:${token}`, 1800)
 // await redisClient.expireAt(`token:${token}`, payload.expAt) -> set the expiry of the key
 // const isBlocked = await redisClient.exists(`token:${token}) -> checks if the key exists
+
+// // Rate Limiter
+// token bucket algo -> we can use a token bucket and give response to requests who have the token else if the token bucket is empty no further request is served untill unless any token is freed after serving the previous request
+// blocking based on ip address -> req.ip
+// limiting time between requests (by storing the time of last request)
+// fixed window approach vs sliding window approach
+// 
+// app.use(rateLimiter) -> use ratelimiter as an middleware
+// const rateLimiter = async(req,res,next) => {
+//     try {
+//         const ip = req.ip
+// 
+//         const count  = redisClient.incr(ip)
+// 
+//         if (count>60) {
+//             throw new Error("user's request limit exceeded")
+//         } else if(count == 1) {
+//             await redisClient.expire(3600)
+//         }
+// 
+//         next()
+// 
+//     } catch (error) {
+// 
+//     }
+// } 

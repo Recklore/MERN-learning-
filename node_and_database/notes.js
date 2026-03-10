@@ -236,6 +236,8 @@
 // fixed window approach vs sliding window approach
 // 
 // app.use(rateLimiter) -> use ratelimiter as an middleware
+// 
+// fixed window
 // const rateLimiter = async(req,res,next) => {
 //     try {
 //         const ip = req.ip
@@ -248,6 +250,38 @@
 //             await redisClient.expire(3600)
 //         }
 // 
+//         next()
+// 
+//     } catch (error) {
+// 
+//     }
+// } 
+// 
+// sliding window (using sorted set (has score:value pairs as elements for sorting)(scores can be duplicate) instead of queue)
+// key = ip, score = time, value = request
+// 
+// const windowSize = 3600
+// const maxRequests = 60
+
+// const rateLimiter = async(req,res,next) => {
+//     try {
+//         const key = `IP${req.ip}`
+//         const currTime = Date.now()/1000
+//         const windowTime = currTime -windowSize
+// 
+//         await redisClient.zRemRangeByScore(key, 0, windowTime)
+// 
+//         const numberOfRequest = await redisClient.zCard(key)
+//  
+//         if(numberOfRequest>=maxRequests)
+//         {
+//             throw new Error("user's limit exceeded")
+//         }
+// 
+//         await redisClient.zAdd(key, [{score:currTime, value:`${currTime}:${Math.random()}`}])
+// 
+//         await redisClient.expire(key, windowSize)
+//
 //         next()
 // 
 //     } catch (error) {

@@ -130,7 +130,7 @@
 // const user_model = mongoose.create("collection_name", userSchema)
 //
 // creating instance of the model/class
-// const user1 = new user_model({name:"aman", age: 21})
+// const user1 = new user_model({name:"j", age: 21})
 // await user1.save()
 //
 // await user_model.create({name:"aman", age: 21})

@@ -7,6 +7,14 @@
 
 // const element = React.createElement("h1", {}, "children")
 // const reactRoot = ReactDOM.createRoot(document.getElementById("root")) -> creates a react container for root element (access of rendering comes to this react container)
-// reactRoot.render(element)
+// reactRoot.render(element) -> it will remove all the previous all the children in the root and then renders the new ones
 
 // static data is stored in CDNs and the dynamic data is stored in the actual servers of the organisation
+
+// Bundler -> bundles all the code and dependencies and also optimizes the code ( removes comments and unused code etc ) (eg: vite, parcel, webpack etc)
+// npm install react
+// npm install react-dom
+
+// package-lock.json vs package.json -> firstly package-lock is checked first for installing packages and it has exact versions while package.json is used when the lock file is missing and package.json file doesnot have exact version but it can give value of the major version
+
+// JSX -> 

@@ -141,13 +141,12 @@
 // querying the database
 // const ans = await User.find({}) -> get all
 // const ans = await User.find({name: "aman"}) -> filtered results where name is aman
-// 
+//
 // connect to database first before starting the server (starting listening)
 // if any extra field (not in schema) is sent in the post/put then mongoose just stores the fields that are in the schema and ignores the unwanted field completely
-// 
+//
 // await user_model.deleteOne({name: "aman"})
 // const res = await user_model.deleteOne({name: "aman"} // find, {age: 21} // update)
-
 
 // // Data Sanitasation and Validation in MOngoose
 // explore methods like findByIdAndUpdate(_id, update, {"runValidator":true}) -> third option is to check data for schema before updating, findById etc
@@ -155,17 +154,17 @@
 // enum: ["male", "female", "other"] -> if enum is defined then the field will not accept any value other than what is defined in the array
 
 // validate(value){
-//     // we can access the value of the field by the value variable and apply validation operations on it 
+//     // we can access the value of the field by the value variable and apply validation operations on it
 // } -> this is defined inside the schema
 // {timestamps:true} -> time is set true in the schema to enable the fields of createdAt and updatedAt in stored documents
-// 
+//
 // API level validation vs Schema level validation -> we do API level validation to minimise DB calls
 
 // // Password storage
 // Rainbow table (used to get hash of common passwords)
-// 
+//
 // Salting -> adding strings/characters in the password
-// 
+//
 // //  bcrypt library
 // const bcrypt = require('bcrypt')
 // const password = "something"
@@ -186,14 +185,14 @@
 // Header -> type, algo name, etc
 // Payload -> has info like usersname, email, etc
 // DigitalSignature -> encrypt by sever key( hashcode( header + payload ))
-// 
+//
 // the header and payload are not encrypted at all, while just the the Digital signature part it encrypted by server key
-// 
+//
 // res.cookie("JWT_token", "actual token value")
 // Cookie parser -> npm install cookie-parser
 // const cookieParser = require(cookie-parser)
 // app.use(cookieParser())
-// 
+//
 // npm isntall jsonwebtoken
 // const jwt = require(jsonwebtoken)
 // const token = jwt.sign({"payload":"values"}, "server_key", {expiresIn:3600 -> time in seconds, or we can use "2 days", "10h", etc})
@@ -207,7 +206,7 @@
 // // Environment variables -> used em in python (the same .env file)
 // npm install dotenv
 // require('dotenv'),config()
-// 
+//
 // process.env.key -> this is the variable we use to access variables mentioned in the .env file, where key is the name of the variable
 // process.env is a global
 
@@ -218,7 +217,6 @@
 
 // // Logout -> res.cookie("token", null, {expires: new Date(Date.now())}) -< it deletes the cookies
 // the above method wont work if the user already copied the previous token, as that token is still for sometime so we need to create an in-memory db to store the logout tokens till there expiry
-
 
 // // Redis database -> in-memory database (npm install redis)
 // const redis = require('redis)
@@ -234,32 +232,32 @@
 // blocking based on ip address -> req.ip
 // limiting time between requests (by storing the time of last request)
 // fixed window approach vs sliding window approach
-// 
+//
 // app.use(rateLimiter) -> use ratelimiter as an middleware
-// 
+//
 // fixed window
 // const rateLimiter = async(req,res,next) => {
 //     try {
 //         const ip = req.ip
-// 
+//
 //         const count  = redisClient.incr(ip)
-// 
+//
 //         if (count>60) {
 //             throw new Error("user's request limit exceeded")
 //         } else if(count == 1) {
 //             await redisClient.expire(3600)
 //         }
-// 
+//
 //         next()
-// 
+//
 //     } catch (error) {
-// 
+//
 //     }
-// } 
-// 
+// }
+//
 // sliding window (using sorted set (has score:value pairs as elements for sorting)(scores can be duplicate) instead of queue)
 // key = ip, score = time, value = request
-// 
+//
 // const windowSize = 3600
 // const maxRequests = 60
 
@@ -268,23 +266,61 @@
 //         const key = `IP${req.ip}`
 //         const currTime = Date.now()/1000
 //         const windowTime = currTime -windowSize
-// 
+//
 //         await redisClient.zRemRangeByScore(key, 0, windowTime)
-// 
+//
 //         const numberOfRequest = await redisClient.zCard(key)
-//  
+//
 //         if(numberOfRequest>=maxRequests)
 //         {
 //             throw new Error("user's limit exceeded")
 //         }
-// 
+//
 //         await redisClient.zAdd(key, [{score:currTime, value:`${currTime}:${Math.random()}`}])
-// 
+//
 //         await redisClient.expire(key, windowSize)
 //
 //         next()
-// 
+//
 //     } catch (error) {
-// 
+//
 //     }
-// } 
+// }
+
+// // Web Sockets
+// firstly a TCP connection is created, and then it is upgraded to web socket for bidirectional communication
+//
+// socket.io -> library that has many things inlcuding web sockets, web transport etc
+//
+// const expresss = require("express")
+// const app = express()
+// const server = app.listen(3000, () => {console.log("listening on port 3000")})
+//
+// const {Server} = require("socket.io")
+// const io = new Server(server)
+//
+// the above code snippet for web socket may not work if the websocket server is not attached after we start listening using the express app, so this below is another method using the http module
+// 
+// const http = require("http")
+// const server = http.createServer(app)
+// const io = new Server(server)
+// server.listen(3000, () => {....})
+// 
+// io.on("connection", (socket) => {    // socket object has information of the user who is on the other side
+//     socket.on("disconnect", () => {
+
+//     })
+    
+//     socket.on("message", (data) => {
+//         io.emit("new-message", data)
+//     })
+// })
+// 
+// use "socket" when referring to a particular socket, and use "io" when referring to all sockets
+// 
+// socket.broadcast.emit("key", data) -> for sending message to everyone except self
+// socket.on("join-room", (room)=> { socket.join(room)}) => join a room
+// socket.to(room).emit("new-message", msg) => sends message to specific room
+// 
+// Private messages
+// socket.to(socketId).emit("new-message", msg)

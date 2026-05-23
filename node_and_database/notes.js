@@ -324,3 +324,14 @@
 // 
 // Private messages
 // socket.to(socketId).emit("new-message", msg)
+
+// // WebRTC (real time communication without and intermediate server)
+// for sharing the ip and port firstly web sockets is used and then peer to peer communication is done
+// 
+// stun server
+// codecs, session description protocol
+// multipoint conferencing unit
+// selective forwarding unit
+// turn server
+// 
+// ICE candidate

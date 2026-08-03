@@ -25,7 +25,7 @@
 
 // // Metlify for deployment
 
-// // JSX (javascript XML) -> .jsx can have both html and js code together 
+// // JSX (javascript XML) -> .jsx can have both html and js code together (jsx is not a part of react, babel converts this jsx code in to react code)
 // const name = "some js variable"
 // const newElement = (
 //     <div>
@@ -37,3 +37,6 @@
 // // React Components (class based component and fucntion based component, class based were used in older versions)
 // fucntion based:
 // const component = () => {return <>some html</>}
+
+// User defined tags in jsx should have the first letter as capital (eg: <Greet/>)
+// Greet is a js funciton that returns some html, now if need to pass some arguments in this funciton the we can do it using simple html format: <Greet/ key="valuse"> and can be accessed using props: funciton Greet(props) {console.log(props.key)}

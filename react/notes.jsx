@@ -47,3 +47,11 @@
 // let [count, setCount] = useState(0)
 // count += 1
 // setCount(count)
+
+// Useeffect hook: it take in an callback function and an dependency, and whenever the dependency is changed the callback fucntion is called at the end of the main function rendering
+// import {useEffect} from "react"
+// useEffect(()=>{
+//     document.body.style.backgroundColor = color;
+// }, [color])
+
+// export default React.memo("jsx-function") -> this hook will prevent the rerendering of the export in other file due to changes in the parent elemnt in that file, allow changes only when the props are changed eg: <jsx-fucntion name = {count}></jsx-fucntion>
